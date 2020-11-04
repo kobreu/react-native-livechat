@@ -16,6 +16,8 @@ export default class LiveChat extends Component {
 	constructor(props) {
 		super(props)
 		this.defineStyles()
+		
+		console.log('---- custom chat version v1 ----')
 
 		this.state = {
 			isChatOn: false,
@@ -292,6 +294,12 @@ export default class LiveChat extends Component {
 			licenseId: Number(licenseId, 10),
 			clientId,
 			redirectUri,
+			customerDataProvider: () => {
+			    return {
+			    name: this.props.customerName,
+			    email: this.props.customerEmail
+			    }
+			}
 		}
 		if (this.props.group !== null) {
 			config.groupId = this.props.group
@@ -343,7 +351,6 @@ export default class LiveChat extends Component {
 						_id: customerId,
 						type: 'customer',
 						name: 'Customer',
-						email: this.props.customerName,
 					},
 				},
 			})
