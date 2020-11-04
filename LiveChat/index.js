@@ -343,6 +343,7 @@ export default class LiveChat extends Component {
 						_id: customerId,
 						type: 'customer',
 						name: 'Customer',
+						email: this.props.customerName,
 					},
 				},
 			})
